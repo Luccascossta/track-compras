@@ -96,6 +96,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 /* Last update label */
 .tn-update{display:flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:.72rem;color:rgba(255,255,255,.55);white-space:nowrap}
 .tn-update-icon{font-size:.8rem}
+/* Sync status pill */
+.tn-sync{display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:100px;font-size:.72rem;border:1px solid transparent;white-space:nowrap;transition:all .3s ease}
+.tn-sync.loading{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:rgba(255,255,255,.5)}
+.tn-sync.saved{background:rgba(78,175,130,.15);border-color:rgba(78,175,130,.3);color:#7ecba1}
+.tn-sync.loaded{background:rgba(78,175,130,.15);border-color:rgba(78,175,130,.3);color:#7ecba1}
+.tn-sync.local{background:rgba(232,160,32,.12);border-color:rgba(232,160,32,.25);color:#e8a020}
+.tn-sync.saving{background:rgba(51,120,197,.12);border-color:rgba(51,120,197,.25);color:#6fa3e8}
+.tn-sync.error{background:rgba(217,79,79,.12);border-color:rgba(217,79,79,.25);color:#e88888}
+.tn-sync.empty{display:none}
 /* Bell */
 .tn-bell-wrap{position:relative;cursor:pointer}
 .tn-bell{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all var(--tr)}
@@ -273,6 +282,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .info-banner{background:#eff8f4;border:1px solid rgba(26,107,69,.18);border-radius:var(--r-md);padding:12px 16px;display:flex;align-items:center;gap:9px;margin-bottom:18px;font-size:.82rem;color:var(--g1)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmerLoad{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .fi{animation:fadeIn .33s ease both}
@@ -340,12 +350,22 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
           <div id="tbp-body"></div>
         </div>
       </div>
+      <div id="tn-sync" class="tn-sync empty"></div>
       <div id="sb-badge" class="tn-badge"><div class="dot"></div><span id="sb-badge-txt">Dados carregados</span></div>
       <button class="btn-logout" onclick="doLogout()">↩ Sair</button>
     </div>
   </nav>
 
   <div class="content-wrap">
+    <!-- Supabase loading overlay -->
+    <div id="sb-loading" style="display:none;position:fixed;inset:0;background:rgba(240,244,241,0.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:16px">
+      <div style="width:52px;height:52px;background:var(--g-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px">☁️</div>
+      <div style="font-size:1rem;font-weight:600;color:var(--t1)">Carregando dados da nuvem...</div>
+      <div style="width:220px;height:5px;background:var(--bdr);border-radius:3px;overflow:hidden">
+        <div style="height:100%;background:linear-gradient(90deg,var(--g1),var(--g3));border-radius:3px;animation:shimmerLoad 1.4s infinite"></div>
+      </div>
+      <div style="font-size:.78rem;color:var(--t3)">Sincronizando com o servidor...</div>
+    </div>
     <div class="main-content">
 
       <!-- HOME -->
@@ -471,6 +491,40 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 </div>
 <script>
 const CREDS={user:'MANE_COMPRAS',pass:'Manecompras_123'};
+
+// ── Supabase ──────────────────────────────────────────────────────────────────
+const SB_URL='https://jjtywjsarjvwsgxukyog.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqdHl3anNhcmp2d3NneHVreW9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3Mzg1NzksImV4cCI6MjA5MTMxNDU3OX0.FTJEs1PHk4MFnglFTlow1kmdZSM2yGchRkXGqQQtQ1Q';
+
+async function sbGet(){
+  try{
+    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data?dataset_key=eq.main&select=req_data,ped_data,merged_data,last_update`,{
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}
+    });
+    if(!r.ok)return null;
+    const d=await r.json();
+    return d&&d.length?d[0]:null;
+  }catch(e){console.warn('Supabase GET error',e);return null;}
+}
+
+async function sbSave(req,ped,mrg,updatedBy){
+  try{
+    const body=JSON.stringify({
+      dataset_key:'main',
+      req_data:req,
+      ped_data:ped,
+      merged_data:mrg,
+      last_update:new Date().toISOString(),
+      updated_by:updatedBy||'MANE_COMPRAS'
+    });
+    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data?dataset_key=eq.main`,{
+      method:'PATCH',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+      body
+    });
+    return r.ok;
+  }catch(e){console.warn('Supabase PATCH error',e);return false;}
+}
 const GN={R01:'Ativo',R02:'Serviço',R03:'Consumo',R04:'Autônomas',R61:'Manutenção'};
 const gl=c=>GN[c]||c||'—';
 const PTITLES={home:['Home','Visão geral'],req:['Requisições','Análise de SLA e status'],ped:['Pedidos','Status de recebimento'],table:['Analítico','Todos os dados detalhados'],upload:['Upload','Atualizar base SAP']};
@@ -480,7 +534,7 @@ const S={req:null,ped:null,mrg:null,pReq:null,pPed:null,charts:{},tFilt:[],tPage
 
 function doLogin(){
   const u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;
-  if(u===CREDS.user&&p===CREDS.pass){showScreen('main');loadSt();showPage('home')}
+  if(u===CREDS.user&&p===CREDS.pass){showScreen('main');loadSt().then(()=>showPage('home'))}
   else document.getElementById('lerr').style.display='block';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.getElementById('login-screen').classList.contains('active'))doLogin()});
@@ -497,10 +551,58 @@ function showPage(n){
   if(n==='table')renderTable();
   if(n==='upload')renderUpInfo();
 }
-function saveSt(){try{if(S.req)localStorage.setItem('tc_r',JSON.stringify(S.req));if(S.ped)localStorage.setItem('tc_p',JSON.stringify(S.ped));if(S.mrg)localStorage.setItem('tc_m',JSON.stringify(S.mrg));if(S.lastUpdate)localStorage.setItem('tc_lu',S.lastUpdate)}catch(e){}}
-function loadSt(){try{const r=localStorage.getItem('tc_r'),p=localStorage.getItem('tc_p'),m=localStorage.getItem('tc_m');if(r)S.req=JSON.parse(r);if(p)S.ped=JSON.parse(p);if(m)S.mrg=JSON.parse(m);
+function saveSt(){
+  // Local cache
+  try{
+    if(S.req)localStorage.setItem('tc_r',JSON.stringify(S.req));
+    if(S.ped)localStorage.setItem('tc_p',JSON.stringify(S.ped));
+    if(S.mrg)localStorage.setItem('tc_m',JSON.stringify(S.mrg));
+    if(S.lastUpdate)localStorage.setItem('tc_lu',S.lastUpdate);
+  }catch(e){}
+  // Push to Supabase (async, non-blocking)
+  if(S.req&&S.ped&&S.mrg){
+    showSyncStatus('saving');
+    sbSave(S.req,S.ped,S.mrg,CREDS.user).then(ok=>{
+      showSyncStatus(ok?'saved':'error');
+    });
+  }
+}
+async function loadSt(){
+  // Show loading overlay
+  const ov=document.getElementById('sb-loading');
+  if(ov)ov.style.display='flex';
+  // Try Supabase first
+  showSyncStatus('loading');
+  const remote=await sbGet();
+  if(remote&&remote.merged_data&&remote.merged_data.length){
+    S.req    = remote.req_data;
+    S.ped    = remote.ped_data;
+    S.mrg    = remote.merged_data;
+    S.lastUpdate = remote.last_update;
+    // Update local cache
+    try{
+      localStorage.setItem('tc_r',JSON.stringify(S.req));
+      localStorage.setItem('tc_p',JSON.stringify(S.ped));
+      localStorage.setItem('tc_m',JSON.stringify(S.mrg));
+      localStorage.setItem('tc_lu',S.lastUpdate);
+    }catch(e){}
+    if(ov)ov.style.display='none';
+    showSyncStatus('loaded');
+    updBadge();
+    return;
+  }
+  // Fallback to localStorage
+  try{
+    const r=localStorage.getItem('tc_r'),p=localStorage.getItem('tc_p'),m=localStorage.getItem('tc_m');
+    if(r)S.req=JSON.parse(r);
+    if(p)S.ped=JSON.parse(p);
+    if(m)S.mrg=JSON.parse(m);
     const lu=localStorage.getItem('tc_lu');if(lu)S.lastUpdate=lu;
-    if(S.mrg)updBadge()}catch(e){}}
+    if(ov)ov.style.display='none';
+    if(S.mrg){showSyncStatus('local');updBadge();}
+    else showSyncStatus('empty');
+  }catch(e){if(ov)ov.style.display='none';showSyncStatus('error');}
+}
 function updBadge(){
   const b=document.getElementById('sb-badge');
   if(!b)return;
@@ -579,6 +681,28 @@ function updNotifications(){
     </div>`).join('');
 }
 
+// Sync status indicator
+const SYNC_MSGS={
+  loading: '⏳ Carregando dados...',
+  saving:  '⬆️ Salvando na nuvem...',
+  saved:   '☁️ Dados salvos na nuvem',
+  loaded:  '☁️ Dados carregados da nuvem',
+  local:   '💾 Usando dados locais',
+  error:   '⚠️ Erro de sincronização',
+  empty:   ''
+};
+function showSyncStatus(state){
+  const el=document.getElementById('tn-sync');
+  if(!el)return;
+  el.className='tn-sync '+state;
+  el.textContent=SYNC_MSGS[state]||'';
+  // Auto-hide success messages after 4s
+  if(state==='saved'||state==='loaded'){
+    setTimeout(()=>{
+      el.className='tn-sync empty';
+    },4000);
+  }
+}
 function toggleBellPanel(){
   const p=document.getElementById('tn-bell-panel');
   if(!p)return;
