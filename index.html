@@ -507,22 +507,70 @@ async function sbGet(){
   }catch(e){console.warn('Supabase GET error',e);return null;}
 }
 
+// Slim down objects before sending to Supabase to reduce payload size
+function slimReq(arr){
+  return arr.map(r=>({
+    id:r.id,item:r.item,reqDate:r.reqDate,poDate:r.poDate,
+    purchaseOrder:r.purchaseOrder,requisitioner:r.requisitioner,
+    purchasingGroup:r.purchasingGroup,purchasingGroupLabel:r.purchasingGroupLabel,
+    material:r.material,shortText:r.shortText,materialGroup:r.materialGroup,
+    nameOfSupplier:r.nameOfSupplier,hasPO:r.hasPO,status:r.status,
+    sla:r.sla,slaOpen:r.slaOpen,slaDisplay:r.slaDisplay,slaOk:r.slaOk,slaFixed:r.slaFixed
+  }));
+}
+function slimPed(arr){
+  return arr.map(p=>({
+    purchDoc:p.purchDoc,item:p.item,supplier:p.supplier,
+    purchasingGroup:p.purchasingGroup,purchasingGroupLabel:p.purchasingGroupLabel,
+    orderQty:p.orderQty,netPrice:p.netPrice,currency:p.currency,
+    material:p.material,shortText:p.shortText,plant:p.plant,
+    toDeliver:p.toDeliver,toInvoice:p.toInvoice,status:p.status,
+    isOpen:p.isOpen,hasMigo:p.hasMigo,hasMiro:p.hasMiro
+  }));
+}
+function slimMrg(arr){
+  // merged = slim req fields + supplier + pedStatus (skip relPed array)
+  return arr.map(r=>({
+    id:r.id,item:r.item,reqDate:r.reqDate,poDate:r.poDate,
+    purchaseOrder:r.purchaseOrder,requisitioner:r.requisitioner,
+    purchasingGroup:r.purchasingGroup,purchasingGroupLabel:r.purchasingGroupLabel,
+    shortText:r.shortText,materialGroup:r.materialGroup,
+    hasPO:r.hasPO,status:r.status,
+    sla:r.sla,slaOpen:r.slaOpen,slaDisplay:r.slaDisplay,slaOk:r.slaOk,slaFixed:r.slaFixed,
+    supplier:r.supplier,pedStatus:r.pedStatus
+  }));
+}
+
 async function sbSave(req,ped,mrg,updatedBy){
   try{
-    const body=JSON.stringify({
+    // Slim payload before sending
+    const payload={
       dataset_key:'main',
-      req_data:req,
-      ped_data:ped,
-      merged_data:mrg,
+      req_data:slimReq(req),
+      ped_data:slimPed(ped),
+      merged_data:slimMrg(mrg),
       last_update:new Date().toISOString(),
       updated_by:updatedBy||'MANE_COMPRAS'
-    });
-    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data?dataset_key=eq.main`,{
-      method:'PATCH',
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+    };
+    const body=JSON.stringify(payload);
+    console.log(`Supabase payload: ${(body.length/1024).toFixed(0)}KB`);
+    // Use POST + upsert (works even if row doesn't exist yet)
+    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data`,{
+      method:'POST',
+      headers:{
+        'apikey':SB_KEY,
+        'Authorization':'Bearer '+SB_KEY,
+        'Content-Type':'application/json',
+        'Prefer':'resolution=merge-duplicates,return=minimal'
+      },
       body
     });
-    return r.ok;
+    if(!r.ok){
+      const err=await r.text();
+      console.error('Supabase save error:',r.status,err);
+      return false;
+    }
+    return true;
   }catch(e){console.warn('Supabase PATCH error',e);return false;}
 }
 const GN={R01:'Ativo',R02:'Serviço',R03:'Consumo',R04:'Autônomas',R61:'Manutenção'};
@@ -697,6 +745,7 @@ function showSyncStatus(state){
   el.className='tn-sync '+state;
   el.textContent=SYNC_MSGS[state]||'';
   // Auto-hide success messages after 4s
+  if(state==='error') console.error('Sync error — check browser console for details');
   if(state==='saved'||state==='loaded'){
     setTimeout(()=>{
       el.className='tn-sync empty';
