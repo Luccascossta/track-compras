@@ -43,7 +43,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 ::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:3px}
 .screen{display:none}
 .screen.active{display:flex}
- 
+
 /* LOGIN */
 #login-screen{min-height:100vh;align-items:center;justify-content:center;background:linear-gradient(145deg,#1a3a2e,#0d2018)}
 .login-card{width:390px;background:var(--bg-white);border-radius:var(--r-xl);padding:44px 38px;box-shadow:var(--sh2);animation:fadeUp .5s ease both}
@@ -59,7 +59,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .btn-primary{width:100%;background:var(--g1);color:#fff;border:none;border-radius:var(--r-sm);padding:12px;font-family:var(--font);font-size:.88rem;font-weight:600;cursor:pointer;transition:all var(--tr);margin-top:4px}
 .btn-primary:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,107,69,.28)}
 .login-error{background:#fef2f2;border:1px solid #fecaca;border-radius:var(--r-sm);padding:9px 13px;font-size:.8rem;color:var(--red);margin-top:12px;display:none}
- 
+
 /* PROCESSING */
 #processing-screen{min-height:100vh;align-items:center;justify-content:center;background:var(--bg)}
 .proc-card{width:420px;background:var(--bg-white);border-radius:var(--r-xl);padding:52px 42px;text-align:center;box-shadow:var(--sh2)}
@@ -68,10 +68,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .proc-step{font-size:.83rem;color:var(--t3);margin-bottom:26px}
 .prog-track{height:6px;background:var(--bdr);border-radius:3px;overflow:hidden;margin-bottom:18px}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g3));border-radius:3px;transition:width .5s ease}
- 
+
 /* LAYOUT — Top navigation bar */
 #main-screen{min-height:100vh;flex-direction:column}
- 
+
 /* TOP NAV */
 .topnav{
   background:var(--sidebar);
@@ -120,18 +120,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .tbp-sub{font-size:.73rem;color:var(--t3);margin-top:2px}
 .btn-logout{display:flex;align-items:center;gap:6px;padding:7px 13px;background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:var(--r-sm);color:rgba(255,255,255,.55);font-family:var(--font);font-size:.8rem;cursor:pointer;transition:all var(--tr)}
 .btn-logout:hover{color:#fff;border-color:rgba(255,255,255,.35)}
- 
+
 .content-wrap{flex:1;display:flex;flex-direction:column;min-height:0}
 .main-content{flex:1;padding:22px 28px}
- 
+
 .page-wrap{display:none}
 .page-wrap.active{display:block}
- 
+
 /* PAGE HEADER */
 .page-header{margin-bottom:22px}
 .page-header h1{font-size:1.3rem;font-weight:700;letter-spacing:-.025em}
 .page-header p{color:var(--t3);font-size:.8rem;margin-top:3px}
- 
+
 /* KPI GRID */
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:13px;margin-bottom:22px}
 .kpi-card{background:var(--bg-white);border:1px solid var(--bdr);border-radius:var(--r-md);padding:18px 16px;box-shadow:var(--sh);transition:all var(--tr);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;min-height:106px}
@@ -146,7 +146,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .kpi-card.red   {--kpi-c:var(--red)}
 .kpi-card.purple{--kpi-c:var(--purple)}
 .kpi-card.teal  {--kpi-c:var(--teal)}
- 
+
 /* FILTER BAR */
 .filter-bar{background:var(--bg-white);border:1px solid var(--bdr);border-radius:var(--r-md);padding:13px 16px;margin-bottom:20px;display:flex;flex-wrap:wrap;gap:9px;align-items:center;box-shadow:var(--sh)}
 .fb-lbl{font-size:.68rem;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.07em;margin-right:2px}
@@ -155,7 +155,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .fsel option{background:var(--bg-white)}
 .btn-reset{display:flex;align-items:center;gap:4px;padding:7px 11px;background:transparent;border:1.5px solid var(--bdr);border-radius:var(--r-sm);color:var(--t3);font-family:var(--font);font-size:.76rem;cursor:pointer;transition:all var(--tr);margin-left:auto}
 .btn-reset:hover{border-color:var(--red);color:var(--red)}
- 
+
 /* CHARTS GRID */
 /* Full 12-col grid for dashboards */
 .charts-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-bottom:16px}
@@ -181,7 +181,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .cw.sh{height:200px}
 .sort-btn{display:flex;align-items:center;gap:4px;padding:5px 9px;background:var(--bg);border:1.5px solid var(--bdr);border-radius:var(--r-sm);color:var(--t3);font-family:var(--font);font-size:.73rem;cursor:pointer;transition:all var(--tr);white-space:nowrap;flex-shrink:0}
 .sort-btn:hover{border-color:var(--g1);color:var(--g1)}
- 
+
 /* SLA */
 .sla-bar{display:flex;align-items:center;gap:9px;margin-bottom:8px}
 .sla-label{font-size:.78rem;color:var(--t2);min-width:115px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -192,14 +192,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100
 .sg .sla-fill,.sg .sla-dot{background:var(--g1)}
 .sa .sla-fill,.sa .sla-dot{background:var(--amber)}
 .sr .sla-fill,.sr .sla-dot{background:var(--red)}
- 
+
 /* BADGES */
 .badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:100px;font-size:.7rem;font-weight:600}
 .bg{background:var(--g-pale);color:var(--g1);border:1px solid rgba(26,107,69,.18)}
 .ba{background:#fef6e7;color:var(--amber);border:1px solid rgba(232,160,32,.22)}
 .br{background:#fef2f2;color:var(--red);border:1px solid rgba(217,79,79,.22)}
 .bb{background:#eff5ff;color:var(--blue);border:1px solid rgba(51,120,197,.22)}
- 
+
 /* TABLE */
 .table-card{background:var(--bg-white);border:1px solid var(--bdr);border-radius:var(--r-md);box-shadow:var(--sh);overflow:hidden}
 .t-toolbar{display:flex;align-items:center;gap:11px;padding:13px 16px;border-bottom:1px solid var(--bdr);flex-wrap:wrap}
@@ -227,7 +227,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .pbtn:hover{border-color:var(--g1);color:var(--g1)}
 .pbtn.active{background:var(--g1);border-color:var(--g1);color:#fff}
 .pbtn:disabled{opacity:.3;cursor:not-allowed}
- 
+
 /* UPLOAD */
 .upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
 .upload-zone{background:var(--bg-white);border:2px dashed var(--bdr);border-radius:var(--r-lg);padding:40px 26px;text-align:center;cursor:pointer;transition:all var(--tr);box-shadow:var(--sh)}
@@ -242,7 +242,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .btn-proc{display:flex;align-items:center;gap:7px;padding:12px 26px;background:var(--g1);color:#fff;border:none;border-radius:var(--r-sm);font-family:var(--font);font-size:.88rem;font-weight:600;cursor:pointer;transition:all var(--tr);margin:0 auto}
 .btn-proc:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,107,69,.28)}
 .btn-proc:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
- 
+
 /* HOME */
 .home-hero{background:linear-gradient(135deg,#1a3a2e,var(--g1));border-radius:var(--r-lg);padding:22px 28px;margin-bottom:20px;display:flex;align-items:center;gap:18px;color:#fff;flex-wrap:wrap}
 .hero-icon{font-size:2rem;flex-shrink:0}
@@ -257,7 +257,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .qt{font-size:.85rem;font-weight:700;margin-bottom:3px}
 .qd{font-size:.74rem;color:var(--t3)}
 /* Home insight blocks */
- 
+
 .grp-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--bdr)}
 .grp-row:last-child{border-bottom:none}
 .grp-name{font-size:.82rem;color:var(--t2);min-width:100px;font-weight:500}
@@ -272,7 +272,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .open-desc{flex:1;font-size:.8rem;color:var(--t1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .open-req{font-size:.75rem;color:var(--t3);min-width:70px}
 .open-days{min-width:54px;text-align:right}
- 
+
 /* NO DATA */
 .nodata{background:#fffbeb;border:1px solid #fde68a;border-radius:var(--r-md);padding:18px 22px;text-align:center;margin-bottom:18px}
 .nodata h3{font-size:.88rem;font-weight:700;color:var(--amber);margin-bottom:5px}
@@ -280,7 +280,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .nd-btn{display:inline-flex;align-items:center;gap:4px;margin-top:9px;padding:7px 14px;background:rgba(232,160,32,.09);border:1.5px solid rgba(232,160,32,.28);border-radius:var(--r-sm);color:var(--amber);font-family:var(--font);font-size:.8rem;cursor:pointer;transition:all var(--tr)}
 .nd-btn:hover{background:rgba(232,160,32,.16)}
 .info-banner{background:#eff8f4;border:1px solid rgba(26,107,69,.18);border-radius:var(--r-md);padding:12px 16px;display:flex;align-items:center;gap:9px;margin-bottom:18px;font-size:.82rem;color:var(--g1)}
- 
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmerLoad{0%{transform:translateX(-100%)}100%{transform:translateX(400%)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
@@ -288,7 +288,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 .fi{animation:fadeIn .33s ease both}
 .fi1{animation-delay:.06s}
 .fi2{animation-delay:.12s}
- 
+
 @media(max-width:1100px){.charts-grid{grid-template-columns:repeat(6,1fr)}.cc.c4{grid-column:span 3}.cc.c5,.cc.c7{grid-column:span 6}.cc.c6{grid-column:span 6}}
 @media(max-width:900px){.topnav{flex-wrap:wrap;height:auto;padding:10px 14px;gap:4px}.tn-divider{display:none}.tn-right{margin-left:0;width:100%;justify-content:flex-end}}
 @media(max-width:900px){.topnav{flex-wrap:wrap;height:auto;padding:10px 14px;gap:4px}.tn-divider{display:none}.tn-right{margin-left:0;width:100%;justify-content:flex-end}}
@@ -297,7 +297,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
 </head>
 <body>
 <div id="app">
- 
+
 <div id="login-screen" class="screen active">
   <div class="login-card">
     <div class="login-logo"><div class="login-logo-icon">🛒</div><div class="login-logo-text">Track<span>Compras</span></div></div>
@@ -308,7 +308,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
     <div class="login-error" id="lerr">Usuário ou senha incorretos.</div>
   </div>
 </div>
- 
+
 <div id="processing-screen" class="screen">
   <div class="proc-card">
     <div class="proc-icon">⚙️</div>
@@ -318,7 +318,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
     <p style="font-size:.78rem;color:var(--t3)">Aguarde enquanto os dados são carregados</p>
   </div>
 </div>
- 
+
 <div id="main-screen" class="screen">
   <nav class="topnav">
     <div class="tn-logo" onclick="showPage('home')" style="cursor:pointer">
@@ -355,7 +355,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
       <button class="btn-logout" onclick="doLogout()">↩ Sair</button>
     </div>
   </nav>
- 
+
   <div class="content-wrap">
     <!-- Supabase loading overlay -->
     <div id="sb-loading" style="display:none;position:fixed;inset:0;background:rgba(240,244,241,0.92);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:16px">
@@ -367,7 +367,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
       <div style="font-size:.78rem;color:var(--t3)">Sincronizando com o servidor...</div>
     </div>
     <div class="main-content">
- 
+
       <!-- HOME -->
       <div class="page-wrap active" id="page-home">
         <div class="home-hero fi">
@@ -386,36 +386,36 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
         <div id="home-kpis" style="display:none">
           <!-- KPI CARDS -->
           <div class="kpi-grid fi" id="h-kpi"></div>
- 
- 
- 
+
+
+
           <!-- BLOCOS 2–5: grade 2×2 uniforme, largura total -->
           <div class="charts-grid fi fi1">
- 
+
             <div class="cc c6">
               <div class="ch"><div><div class="ct">⏱️ Distribuição do SLA</div><div class="cs">Faixas de tempo · Meta: ≤ 7 dias úteis</div></div></div>
               <div class="cw sh"><canvas id="h-sla-dist"></canvas></div>
             </div>
- 
+
             <div class="cc c6">
               <div class="ch"><div><div class="ct">📅 SLA Médio Mês a Mês</div><div class="cs">Evolução do tempo médio de atendimento em dias úteis</div></div></div>
               <div class="cw sh"><canvas id="h-sla-monthly"></canvas></div>
             </div>
- 
+
             <div class="cc c6">
               <div class="ch"><div><div class="ct">🏷️ Desempenho por Grupo de Compras</div><div class="cs">SLA médio e % dentro da meta por grupo</div></div></div>
               <div id="h-grp-rank" style="flex:1;min-height:190px"></div>
             </div>
- 
+
             <div class="cc c6">
               <div class="ch"><div><div class="ct">⚠️ Requisições em Aberto há Mais Tempo</div><div class="cs">Sem PO · Dias úteis desde a criação</div></div></div>
               <div id="h-open-longest" style="flex:1;overflow-y:auto;min-height:190px"></div>
             </div>
- 
+
           </div>
         </div>
       </div>
- 
+
       <!-- REQ -->
       <div class="page-wrap" id="page-req">
         <div class="page-header fi"><h1>📋 Dashboard — Requisições</h1><p>Análise completa de requisições de compra com SLA e status</p></div>
@@ -426,7 +426,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
           <div class="charts-grid fi fi1" id="req-charts" style="grid-template-columns:repeat(12,1fr)"></div>
         </div>
       </div>
- 
+
       <!-- PED -->
       <div class="page-wrap" id="page-ped">
         <div class="page-header fi"><h1>🛒 Dashboard — Pedidos</h1><p>Status de recebimento, pendências e análise de fornecedores</p></div>
@@ -437,7 +437,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
           <div class="charts-grid fi fi1" id="ped-charts" style="grid-template-columns:repeat(12,1fr)"></div>
         </div>
       </div>
- 
+
       <!-- TABLE -->
       <div class="page-wrap" id="page-table">
         <div class="page-header fi"><h1>📊 Tabela Analítica</h1><p>Visão detalhada de todas as requisições</p></div>
@@ -462,7 +462,7 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
           </div>
         </div>
       </div>
- 
+
       <!-- UPLOAD -->
       <div class="page-wrap" id="page-upload">
         <div class="page-header fi"><h1>📁 Upload de Arquivos</h1><p>Carregue relatórios exportados do SAP</p></div>
@@ -484,18 +484,18 @@ tbody td.mono{font-family:var(--mono);font-size:.76rem;color:var(--t2)}
         <div style="text-align:center;margin-top:6px"><button class="btn-proc" id="bproc" onclick="processData()" disabled>⚙️ Processar e Carregar Dados</button></div>
         <div id="up-exist" style="margin-top:18px;display:none"><div class="info-banner"><span>✅</span><span id="up-exist-txt"></span></div></div>
       </div>
- 
+
     </div>
   </div>
 </div>
 </div>
 <script>
 const CREDS={user:'MANE_COMPRAS',pass:'Manecompras_123'};
- 
+
 // ── Supabase ──────────────────────────────────────────────────────────────────
 const SB_URL='https://jjtywjsarjvwsgxukyog.supabase.co';
 const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpqdHl3anNhcmp2d3NneHVreW9nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3Mzg1NzksImV4cCI6MjA5MTMxNDU3OX0.FTJEs1PHk4MFnglFTlow1kmdZSM2yGchRkXGqQQtQ1Q';
- 
+
 async function sbGet(){
   try{
     const r=await fetch(`${SB_URL}/rest/v1/track_compras_data?dataset_key=eq.main&select=req_data,ped_data,merged_data,last_update`,{
@@ -506,7 +506,7 @@ async function sbGet(){
     return d&&d.length?d[0]:null;
   }catch(e){console.warn('Supabase GET error',e);return null;}
 }
- 
+
 // Slim down objects before sending to Supabase to reduce payload size
 function slimReq(arr){
   return arr.map(r=>({
@@ -540,12 +540,11 @@ function slimMrg(arr){
     supplier:r.supplier,pedStatus:r.pedStatus
   }));
 }
- 
+
 async function sbSave(req,ped,mrg,updatedBy){
   try{
     // Slim payload before sending
     const payload={
-      dataset_key:'main',
       req_data:slimReq(req),
       ped_data:slimPed(ped),
       merged_data:slimMrg(mrg),
@@ -554,14 +553,14 @@ async function sbSave(req,ped,mrg,updatedBy){
     };
     const body=JSON.stringify(payload);
     console.log(`Supabase payload: ${(body.length/1024).toFixed(0)}KB`);
-    // Use POST + upsert (works even if row doesn't exist yet)
-    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data`,{
-      method:'POST',
+    // PATCH the existing 'main' row (always exists after SQL setup)
+    const r=await fetch(`${SB_URL}/rest/v1/track_compras_data?dataset_key=eq.main`,{
+      method:'PATCH',
       headers:{
         'apikey':SB_KEY,
         'Authorization':'Bearer '+SB_KEY,
         'Content-Type':'application/json',
-        'Prefer':'resolution=merge-duplicates,return=minimal'
+        'Prefer':'return=minimal'
       },
       body
     });
@@ -587,7 +586,7 @@ const PTITLES={home:['Home','Visão geral'],req:['Requisições','Análise de SL
 const MO=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
 const CL={g:'#1a6b45',b:'#3378c5',a:'#e8a020',r:'#d94f4f',p:'#8b6db0',t:'#2ab5a0'};
 const S={req:null,ped:null,mrg:null,pReq:null,pPed:null,charts:{},tFilt:[],tPage:1,tPS:50,tSC:null,tSD:'asc',rF:{},pF:{},slaSt:'asc'};
- 
+
 function doLogin(){
   const u=document.getElementById('lu').value.trim(),p=document.getElementById('lp').value;
   if(u===CREDS.user&&p===CREDS.pass){showScreen('main');loadSt().then(()=>showPage('home'))}
@@ -677,18 +676,18 @@ function updBadge(){
   // Notifications
   updNotifications();
 }
- 
+
 function updNotifications(){
   const wrap=document.getElementById('tn-bell-wrap');
   const cnt=document.getElementById('tn-bell-count');
   const body=document.getElementById('tbp-body');
   if(!wrap||!S.mrg)return;
- 
+
   const now=new Date();
   const twoDaysAgo=new Date(now);
   twoDaysAgo.setDate(twoDaysAgo.getDate()-2);
   twoDaysAgo.setHours(0,0,0,0);
- 
+
   // Req created in last 2 days
   const recentReqs=S.mrg.filter(r=>{
     if(!r.reqDate)return false;
@@ -697,7 +696,7 @@ function updNotifications(){
   });
   const recentIds=new Set(recentReqs.map(r=>r.id));
   const recentCount=recentIds.size;
- 
+
   // Req open > 30 business days
   const today=new Date();today.setHours(0,0,0,0);
   const longOpen=S.mrg.filter(r=>{
@@ -706,7 +705,7 @@ function updNotifications(){
     return d && bdays(d,today)>30;
   });
   const longOpenIds=new Set(longOpen.map(r=>r.id));
- 
+
   const alerts=[];
   if(recentCount>0){
     alerts.push({
@@ -725,7 +724,7 @@ function updNotifications(){
   if(alerts.length===0){
     alerts.push({color:'#2ab5a0',msg:'Nenhum alerta no momento',sub:'Tudo em ordem ✓'});
   }
- 
+
   const total=alerts.filter(a=>a.color!=='#2ab5a0').length;
   wrap.style.display='block';
   cnt.textContent=total||'';
@@ -736,7 +735,7 @@ function updNotifications(){
       <div><div class="tbp-msg">${a.msg}</div><div class="tbp-sub">${a.sub}</div></div>
     </div>`).join('');
 }
- 
+
 // Sync status indicator
 const SYNC_MSGS={
   loading: '⏳ Carregando dados...',
@@ -771,7 +770,7 @@ document.addEventListener('click',e=>{
   const panel=document.getElementById('tn-bell-panel');
   if(wrap&&panel&&!wrap.contains(e.target))panel.style.display='none';
 });
- 
+
 // UPLOAD
 const RREQ=['Purchase Requisition','Item of requisition','Requisition date'];
 const RPED=['Purchasing Document','Item','Still to be delivered (qty)'];
@@ -798,7 +797,7 @@ function showUS(t,f,n){document.getElementById('zone-'+t).classList.add('has-fil
 function showUE(t,m){document.getElementById('zone-'+t).classList.remove('has-file');document.getElementById('ustat-'+t).innerHTML=`<div class="up-err">❌ ${m}</div>`}
 function chkBtn(){document.getElementById('bproc').disabled=!(S.pReq&&S.pPed)}
 function renderUpInfo(){const el=document.getElementById('up-exist');if(S.mrg){el.style.display='block';document.getElementById('up-exist-txt').textContent=`Base atual: ${S.mrg.length.toLocaleString('pt-BR')} requisições. Novo upload substitui.`}else el.style.display='none'}
- 
+
 // PROCESS
 function processData(){if(!S.pReq||!S.pPed)return;showScreen('processing');setTimeout(doProc,100)}
 function sp(pct,msg){document.getElementById('prog').style.width=pct+'%';document.getElementById('proc-step').textContent=msg}
@@ -810,7 +809,7 @@ function doProc(){
   setTimeout(()=>{S.req=req;S.ped=ped;S.mrg=mrg;S.lastUpdate=new Date().toISOString();sp(100,'Concluído!');saveSt();
   setTimeout(()=>{showScreen('main');updBadge();showPage('home')},600)},300)},300)},400)},200);
 }
- 
+
 // NORMALIZE
 // SLA é calculado LINHA A LINHA:
 //   - Com PO:  dias úteis entre Requisition date (col K) → Purchase Order Date (col Z)
@@ -883,7 +882,7 @@ function mergD(req,ped){
     return{...r,relPed:rp,pedStatus:ps,supplier:sup};
   });
 }
- 
+
 // DATE UTILS — robust parser for SheetJS cellDates:true output
 function pd(v){
   if(v===null||v===undefined||v==='')return null;
@@ -926,14 +925,14 @@ function fd(d){
   return dt.toLocaleDateString('pt-BR');
 }
 function fn(n,dec=0){if(n===null||n===undefined||isNaN(n))return'—';return Number(n).toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
- 
+
 // HELPERS
 function uv(arr,key){return[...new Set(arr.map(r=>r[key]).filter(Boolean))].sort()}
 function ugL(arr){const seen={};arr.forEach(r=>{if(r.purchasingGroup)seen[r.purchasingGroup]=r.purchasingGroupLabel});return Object.entries(seen).sort((a,b)=>a[1].localeCompare(b[1]))}
 function mkSel(id,ph,vals,fn){return`<select class="fsel" id="${id}" onchange="${fn}"><option value="">— ${ph} —</option>${vals.map(v=>`<option value="${v}">${v}</option>`).join('')}</select>`}
 function mkGrpSel(id,pairs,fn){return`<select class="fsel" id="${id}" onchange="${fn}"><option value="">— Grupo de Compras —</option>${pairs.map(([c,l])=>`<option value="${c}">${l}</option>`).join('')}</select>`}
 function gv(id){return(document.getElementById(id)||{}).value||''}
- 
+
 // HOME
 function renderHome(){
   const has=!!S.mrg;
@@ -941,7 +940,7 @@ function renderHome(){
   document.getElementById('home-kpis').style.display=has?'block':'none';
   if(!has)return;
   const m=S.mrg, ped=S.ped||[];
- 
+
   // ── Core counts ──
   const uReqs = new Set(m.map(r=>r.id)).size;
   const uLines = m.length;
@@ -956,7 +955,7 @@ function renderHome(){
   const pDone  = new Set(ped.filter(p=>p.hasMiro).map(p=>p.purchDoc)).size;
   const sups   = new Set(ped.map(p=>p.supplier).filter(Boolean)).size;
   const reqs   = new Set(m.map(r=>r.requisitioner).filter(Boolean)).size;
- 
+
   // ── Hero mini-stats ──
   const hrc = document.getElementById('hero-req-cnt');
   const hpc = document.getElementById('hero-ped-cnt');
@@ -964,7 +963,7 @@ function renderHome(){
   if(hrc) hrc.textContent = fn(uReqs);
   if(hpc) hpc.textContent = fn(uPOs);
   if(hsa) hsa.textContent = fn(avg,1)+'d';
- 
+
   // ── KPI cards ──
   const kpis=[
     {l:'Total Requisições',    v:fn(uReqs),    i:'📋',c:'green'},
@@ -980,9 +979,9 @@ function renderHome(){
     {l:'Fornecedores',         v:fn(sups),     i:'🏭',c:'purple'},
   ];
   document.getElementById('h-kpi').innerHTML=kpis.map(k=>`<div class="kpi-card ${k.c}"><div class="kpi-icon">${k.i}</div><div class="kpi-value">${k.v}</div><div class="kpi-label">${k.l}</div></div>`).join('');
- 
- 
- 
+
+
+
   // ── BLOCO 2: Distribuição SLA (bar chart) ──
   const slaBuckets = [
     {l:'Mesmo dia (0d)', n: ws.filter(r=>r.sla===0).length, c:'rgba(26,107,69,0.85)'},
@@ -1001,7 +1000,7 @@ function renderHome(){
       tooltip:{...CD.plugins.tooltip,callbacks:{label:c=>`${c.parsed.y.toLocaleString('pt-BR')} requisições`}}
     }
   });
- 
+
   // ── BLOCO 3: SLA médio mês a mês (line) ──
   const monthMap={};
   m.filter(r=>r.sla!==null&&r.reqDate).forEach(r=>{
@@ -1035,7 +1034,7 @@ function renderHome(){
        }
     }
   });
- 
+
   // ── BLOCO 4: Ranking por grupo de compras ──
   const grpStats={};
   m.forEach(r=>{
@@ -1063,7 +1062,7 @@ function renderHome(){
       </div>
     </div>`;
   }).join('');
- 
+
   // ── BLOCO 5: Requisições em aberto há mais tempo ──
   const today=new Date();today.setHours(0,0,0,0);
   const openLines=m.filter(r=>!r.hasPO&&r.reqDate).map(r=>{
@@ -1085,7 +1084,7 @@ function renderHome(){
         </div>`;
       }).join('');
 }
- 
+
 // REQ
 function renderReq(){
   if(!S.mrg){document.getElementById('req-nd').style.display='block';document.getElementById('req-body').style.display='none';return}
@@ -1119,7 +1118,7 @@ function getRFilt(){
 function applyRF(){S.rF={id:gv('f-rid'),req:gv('f-rreq'),grp:gv('f-rgrp'),mat:gv('f-rmat'),st:gv('f-rst'),from:gv('f-rfrom'),to:gv('f-rto')};buildReqCharts(getRFilt())}
 function restRF(){const m={id:'f-rid',req:'f-rreq',grp:'f-rgrp',mat:'f-rmat',st:'f-rst',from:'f-rfrom',to:'f-rto'};Object.entries(m).forEach(([k,id])=>{const el=document.getElementById(id);if(el&&S.rF[k])el.value=S.rF[k]})}
 function resetRF(){S.rF={};renderReq()}
- 
+
 function buildReqCharts(data){
   const byId={};data.forEach(r=>{if(!byId[r.id])byId[r.id]=r});
   const uniq=Object.values(byId);
@@ -1128,7 +1127,7 @@ function buildReqCharts(data){
   const ws=data.filter(r=>r.sla!==null);
   const avg=ws.length?ws.reduce((a,b)=>a+b.sla,0)/ws.length:0;
   const pct=ws.length?ws.filter(r=>r.slaOk).length/ws.length*100:0;
- 
+
   document.getElementById('req-kpi').innerHTML=[
     {l:'Total Requisições',v:fn(total),i:'📋',c:'green'},
     {l:'Concluídas (com PO)',v:fn(done),i:'✅',c:'green'},
@@ -1137,7 +1136,7 @@ function buildReqCharts(data){
     {l:'% Dentro do SLA ≤7d',v:fn(pct,1)+'%',i:'🎯',c:pct>=70?'green':'amber'},
     {l:'Linhas de Requisição',v:fn(data.length),i:'📄',c:'blue'},
   ].map(k=>`<div class="kpi-card ${k.c}"><div class="kpi-icon">${k.i}</div><div class="kpi-value">${k.v}</div><div class="kpi-label">${k.l}</div></div>`).join('');
- 
+
   document.getElementById('req-charts').innerHTML=`
       <div class="cc c3">
         <div class="ch"><div><div class="ct">Status das Requisições</div><div class="cs">Por número único de requisição</div></div></div>
@@ -1162,31 +1161,31 @@ function buildReqCharts(data){
         <div class="ch"><div><div class="ct">Volume de Requisições por Mês</div><div class="cs">Requisições únicas por mês de criação</div></div></div>
         <div class="cw sh"><canvas id="c-rtl"></canvas></div>
       </div>`;
- 
+
   dch(['c-rst','c-rreq','c-rgrp','c-rtl']);
- 
+
   // Status — BARRAS
   nc('c-rst','bar',{labels:['Concluídas','Em Aberto'],datasets:[{data:[done,open],backgroundColor:[CL.g,CL.a],borderRadius:6,borderSkipped:false}]},bOpts('h'));
- 
+
   // Top reqs
   const rm={};uniq.forEach(r=>{rm[r.requisitioner]=(rm[r.requisitioner]||0)+1});
   const tr=Object.entries(rm).sort((a,b)=>b[1]-a[1]).slice(0,8);
   nc('c-rreq','bar',{labels:tr.map(r=>r[0]),datasets:[{data:tr.map(r=>r[1]),backgroundColor:CL.g,borderRadius:6,borderSkipped:false}]},bOpts('h'));
- 
+
   // By group
   const gm={};uniq.forEach(r=>{const l=r.purchasingGroupLabel||r.purchasingGroup;gm[l]=(gm[l]||0)+1});
   const gg=Object.entries(gm).sort((a,b)=>b[1]-a[1]);
   const pal=[CL.g,CL.b,CL.a,CL.p,CL.t];
   nc('c-rgrp','bar',{labels:gg.map(g=>g[0]),datasets:[{data:gg.map(g=>g[1]),backgroundColor:gg.map((_,i)=>pal[i%pal.length]),borderRadius:6,borderSkipped:false}]},bOpts('v'));
- 
+
   buildSla(data); // pass all filtered lines for avg SLA per requisitioner
- 
+
   // Timeline
   const tm={};uniq.forEach(r=>{if(!r.reqDate)return;const d=r.reqDate instanceof Date?r.reqDate:new Date(r.reqDate);const k=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;tm[k]=(tm[k]||0)+1});
   const st=Object.entries(tm).sort((a,b)=>a[0].localeCompare(b[0]));
   nc('c-rtl','line',{labels:st.map(([k])=>{const[y,mo]=k.split('-');return`${MO[+mo-1]}/${y.slice(2)}`}),datasets:[{label:'Req.',data:st.map(([,v])=>v),borderColor:CL.g,backgroundColor:'rgba(26,107,69,0.07)',borderWidth:2,pointRadius:3,pointBackgroundColor:CL.g,tension:.4,fill:true}]},lOpts());
 }
- 
+
 function buildSla(lines){
   // Uses ALL lines, grouped by requisitioner -> avg SLA per person
   const sb={};lines.filter(r=>r.sla!==null).forEach(r=>{if(!sb[r.requisitioner])sb[r.requisitioner]=[];sb[r.requisitioner].push(r.sla)});
@@ -1202,7 +1201,7 @@ function buildSla(lines){
   const btn=document.getElementById('sla-sbtn');if(btn)document.getElementById('sla-sico').textContent=S.slaSt==='asc'?'↑':'↓';
 }
 function togSla(){S.slaSt=S.slaSt==='asc'?'desc':'asc';buildSla(getRFilt())}
- 
+
 // PED
 function renderPed(){
   if(!S.ped){document.getElementById('ped-nd').style.display='block';document.getElementById('ped-body').style.display='none';return}
@@ -1230,7 +1229,7 @@ function getPFilt(){
 function applyPF(){S.pF={id:gv('f-pid'),sup:gv('f-psup'),grp:gv('f-pgrp'),st:gv('f-pst')};buildPedCharts(getPFilt())}
 function restPF(){const m={id:'f-pid',sup:'f-psup',grp:'f-pgrp',st:'f-pst'};Object.entries(m).forEach(([k,id])=>{const el=document.getElementById(id);if(el&&S.pF[k])el.value=S.pF[k]})}
 function resetPF(){S.pF={};renderPed()}
- 
+
 function buildPedCharts(ped){
   const total=ped.length;
   const uPOs=new Set(ped.map(p=>p.purchDoc)).size;
@@ -1240,7 +1239,7 @@ function buildPedCharts(ped){
   const pOpen=new Set(ped.filter(p=>p.isOpen).map(p=>p.purchDoc)).size;
   const pDone=new Set(ped.filter(p=>p.hasMiro).map(p=>p.purchDoc)).size;
   const sups=new Set(ped.map(p=>p.supplier).filter(Boolean)).size;
- 
+
   document.getElementById('ped-kpi').innerHTML=[
     {l:'Total Linhas PO',v:fn(total),i:'📄',c:'blue'},
     {l:'Pedidos Únicos (PO)',v:fn(uPOs),i:'🛒',c:'blue'},
@@ -1251,7 +1250,7 @@ function buildPedCharts(ped){
     {l:'Pedidos Concluídos',v:fn(pDone),i:'🏁',c:'green'},
     {l:'Fornecedores',v:fn(sups),i:'🏭',c:'purple'},
   ].map(k=>`<div class="kpi-card ${k.c}"><div class="kpi-icon">${k.i}</div><div class="kpi-value">${k.v}</div><div class="kpi-label">${k.l}</div></div>`).join('');
- 
+
   document.getElementById('ped-charts').innerHTML=`
       <div class="cc c3">
         <div class="ch"><div><div class="ct">Status dos Pedidos</div><div class="cs">Linhas por situação</div></div></div>
@@ -1273,26 +1272,26 @@ function buildPedCharts(ped){
         <div class="ch"><div><div class="ct">Volume de Pedidos por Mês</div><div class="cs">Pedidos únicos ao longo do tempo</div></div></div>
         <div class="cw sh"><canvas id="c-ptl"></canvas></div>
       </div>`;
- 
+
   dch(['c-pst','c-psup','c-pgrp','c-pdlv','c-ptl']);
- 
+
   // Status BARRAS
   nc('c-pst','bar',{labels:['Em Aberto','MIGO s/ MIRO','Concluído (MIRO)'],datasets:[{data:[lOpen,migo,miro],backgroundColor:[CL.a,CL.b,CL.g],borderRadius:6,borderSkipped:false}]},bOpts('h'));
- 
+
   // Suppliers
   const sm={};ped.forEach(p=>{if(p.supplier)sm[p.supplier]=(sm[p.supplier]||0)+1});
   const ts=Object.entries(sm).sort((a,b)=>b[1]-a[1]).slice(0,10);
   nc('c-psup','bar',{labels:ts.map(s=>s[0].slice(0,28)),datasets:[{data:ts.map(s=>s[1]),backgroundColor:CL.b,borderRadius:6,borderSkipped:false}]},bOpts('h'));
- 
+
   // By group
   const gm={};ped.forEach(p=>{const l=p.purchasingGroupLabel||p.purchasingGroup;gm[l]=(gm[l]||0)+1});
   const gg=Object.entries(gm).sort((a,b)=>b[1]-a[1]);
   const pal=[CL.g,CL.b,CL.a,CL.p,CL.t];
   nc('c-pgrp','bar',{labels:gg.map(g=>g[0]),datasets:[{data:gg.map(g=>g[1]),backgroundColor:gg.map((_,i)=>pal[i%pal.length]),borderRadius:6,borderSkipped:false}]},bOpts('v'));
- 
+
   // Delivery
   nc('c-pdlv','bar',{labels:['Recebido (MIGO)','Pendente de Receb.'],datasets:[{data:[migo+miro,lOpen],backgroundColor:[CL.g,CL.a],borderRadius:8,borderSkipped:false}]},bOpts('v'));
- 
+
   // Timeline — unique POs by month from mergedData
   const tm={};
   if(S.mrg){
@@ -1310,7 +1309,7 @@ function buildPedCharts(ped){
   const st=Object.entries(tm).sort((a,b)=>a[0].localeCompare(b[0]));
   nc('c-ptl','line',{labels:st.map(([k])=>{const[y,mo]=k.split('-');return`${MO[+mo-1]}/${y.slice(2)}`}),datasets:[{label:'Pedidos',data:st.map(([,v])=>v),borderColor:CL.b,backgroundColor:'rgba(51,120,197,0.07)',borderWidth:2,pointRadius:3,pointBackgroundColor:CL.b,tension:.4,fill:true}]},lOpts());
 }
- 
+
 // TABLE
 const TCOLS=[
   {k:'id',l:'Requisição',tp:'mono'},{k:'item',l:'Item',tp:'mono'},
@@ -1322,7 +1321,7 @@ const TCOLS=[
   {k:'pedStatus',l:'Status PO',tp:'badge'},
 ];
 const BM={'Concluída':'bg','Em Aberto':'ba','MIGO':'bb','Concluído':'bg'};
- 
+
 function renderTable(){
   if(!S.mrg){document.getElementById('tbl-nd').style.display='block';document.getElementById('tbl-body').style.display='none';return}
   document.getElementById('tbl-nd').style.display='none';document.getElementById('tbl-body').style.display='block';
@@ -1397,7 +1396,7 @@ function exportTable(){
   XLSX.utils.book_append_sheet(wb,ws,'Analítico');
   XLSX.writeFile(wb,`TrackCompras_${new Date().toLocaleDateString('pt-BR').replace(/\//g,'-')}.xlsx`);
 }
- 
+
 // CHART UTILS
 const CD={responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#4a6453',font:{size:11},padding:11}},tooltip:{backgroundColor:'#1a3a2e',borderColor:'rgba(255,255,255,0.1)',borderWidth:1,padding:9,titleColor:'#fff',bodyColor:'rgba(255,255,255,.8)',cornerRadius:7}}};
 const SC={x:{grid:{color:'rgba(0,0,0,.05)'},ticks:{color:'#8aaa94',font:{size:10}}},y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{color:'#8aaa94',font:{size:10}}}};
@@ -1405,7 +1404,7 @@ function bOpts(dir){return{...CD,indexAxis:dir==='h'?'y':'x',plugins:{...CD.plug
 function lOpts(){return{...CD,plugins:{...CD.plugins,legend:{display:false}},scales:{x:{...SC.x,ticks:{...SC.x.ticks,maxTicksLimit:12}},y:SC.y}}}
 function nc(id,type,data,opts){const el=document.getElementById(id);if(!el)return;if(S.charts[id])S.charts[id].destroy();S.charts[id]=new Chart(el,{type,data,options:opts})}
 function dch(ids){ids.forEach(id=>{if(S.charts[id]){S.charts[id].destroy();delete S.charts[id]}})}
- 
+
 Chart.defaults.color='#4a6453';
 Chart.defaults.borderColor='rgba(0,0,0,.06)';
 Chart.defaults.font.family="'DM Sans',system-ui,sans-serif";
